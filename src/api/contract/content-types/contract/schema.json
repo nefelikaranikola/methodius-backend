@@ -1,0 +1,54 @@
+{
+  "kind": "collectionType",
+  "collectionName": "contracts",
+  "info": {
+    "singularName": "contract",
+    "pluralName": "contracts",
+    "displayName": "Contracts",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "employee": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::employee.employee",
+      "inversedBy": "contract"
+    },
+    "title": {
+      "type": "string",
+      "required": true,
+      "default": "Employment Contract"
+    },
+    "file": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "files"
+      ]
+    },
+    "grossSalary": {
+      "type": "decimal"
+    },
+    "netSalary": {
+      "type": "decimal",
+      "required": true
+    },
+    "contractStatus": {
+      "type": "enumeration",
+      "enum": [
+        "Active",
+        "Terminated",
+        "Pending"
+      ],
+      "default": "Pending",
+      "required": true
+    },
+    "notes": {
+      "type": "text"
+    }
+  }
+}

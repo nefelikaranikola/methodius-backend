@@ -1,0 +1,56 @@
+{
+  "kind": "collectionType",
+  "collectionName": "leave_requests",
+  "info": {
+    "singularName": "leave-request",
+    "pluralName": "leave-requests",
+    "displayName": "Leave Requests"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "leaveType": {
+      "type": "enumeration",
+      "enum": [
+        "Sick Leave",
+        "Vacation",
+        "Personal Leave"
+      ],
+      "default": "Sick Leave",
+      "required": true
+    },
+    "startDate": {
+      "type": "date",
+      "required": true
+    },
+    "endDate": {
+      "type": "date",
+      "required": true
+    },
+    "totalHours": {
+      "type": "integer",
+      "required": true
+    },
+    "reason": {
+      "type": "text"
+    },
+    "leaveStatus": {
+      "type": "enumeration",
+      "enum": [
+        "Pending",
+        "Approved",
+        "Declined"
+      ],
+      "required": true,
+      "default": "Pending"
+    },
+    "employee": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::employee.employee",
+      "inversedBy": "leaveRequests"
+    }
+  }
+}
